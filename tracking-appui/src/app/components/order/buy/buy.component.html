@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+      
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      
+          <ng-container matColumnDef="companySequence">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="sort"> Sequence </th>
+            <td mat-cell *matCellDef="let element"> {{element.companySequence}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="sort"> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="companySector">
+            <th mat-header-cell *matHeaderCellDef> Sector </th>
+            <td mat-cell *matCellDef="let element"> {{element.companySector}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="companyType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.companyType}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="companyCurrentPrice">
+            <th mat-header-cell *matHeaderCellDef> Price Today </th>
+            <td mat-cell *matCellDef="let element"> {{element.companyCurrentPrice}} </td>
+          </ng-container>
+      
+          <!-- Update Column -->
+          <ng-container matColumnDef="buy">
+            <th mat-header-cell *matHeaderCellDef> Buy </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" type="button" (click)="onPurchase(element)">Buy</button>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[20,50]" showFirstLastButtons></mat-paginator>
+      </div>      
+</body>
+</html>

@@ -1,0 +1,15 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="example-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="companyName" matInput>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Quantity</mat-label>
+            <input formControlName="companyBroughtQuantity" matInput>
+          </mat-form-field><br>
+          <button mat-flat-button color="primary" type="submit">Buy</button>
+        </div>
+        
+      </form> 
+  

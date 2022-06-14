@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    <mat-toolbar color="primary">
+      
+      <span>{{title}}</span> 
+    </mat-toolbar>
+  </p>
+  
+  
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       [routerLink]="['/register-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Insert Page
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/view-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Alter Page
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/buy-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Buy Page
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/sell-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Sell Page
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/view-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Statements Page
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/view-component']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">Take Notes
+    </a>
+    
+  </nav>
+  <router-outlet></router-outlet>
+</body>
+</html>
+
