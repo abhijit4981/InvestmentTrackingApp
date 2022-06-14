@@ -1,1 +1,51 @@
-<p>cloneuser works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form [formGroup]="registerForm" (ngSubmit)="onClone(registerForm)">
+          <div class="example-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Company Name</mat-label>
+              <input formControlName="companyName" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Sector</mat-label>
+              <mat-select id="companySector" formControlName="companySector">
+              <mat-option *ngFor="let sector of sectorList" [value]="sector">{{sector}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Type</mat-label>
+              <mat-select id="companyType" formControlName="companyType">
+              <mat-option *ngFor="let type of typeList" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Expected Low</mat-label>
+              <input type="number" formControlName="companyExpectedLow" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Expected High</mat-label>
+              <input type="number" formControlName="companyExpectedHigh" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Current Price</mat-label>
+              <input type="number" formControlName="companyCurrentPrice" matInput>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Prefered Sequence</mat-label>
+              <input formControlName="companySequence" matInput>
+            </mat-form-field><br>
+            <button mat-flat-button color="primary" type="submit">Add Company</button>
+          </div>
+          
+        </form>  
+      </div>
+</body>
+</html>

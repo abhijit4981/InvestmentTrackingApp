@@ -6,4 +6,6 @@ export interface ModelPojo {
       companyType: string;
       companyCurrentPrice: number;
       companyBroughtQuantity:number;
+      companyExpectedLow : number;
+      companyExpectedHigh :number;
 }

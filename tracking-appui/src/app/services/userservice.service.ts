@@ -34,6 +34,10 @@ export class UserserviceService {
   saveUser(user:ModelPojo) {
     return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
   }
+  cloneUser(user:ModelPojo) {
+    user.companyId=0;
+    return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
+  }
   updateUser(user:ModelPojo,mobileNumber:number){
     return this.http.put<ModelPojo>(this.modelUrl+mobileNumber,user).pipe(catchError(this.handleError));
   }
