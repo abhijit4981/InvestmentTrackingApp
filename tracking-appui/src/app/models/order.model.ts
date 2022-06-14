@@ -1,6 +1,6 @@
 export class Order {
       orderId: number;
-      companyId:number;
+      compId:number;
       companyName: string;
       companyBroughtQuantity: number;
       orderDate : Date;

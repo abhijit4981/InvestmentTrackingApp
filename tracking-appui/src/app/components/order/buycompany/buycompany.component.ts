@@ -31,7 +31,7 @@ export class BuycompanyComponent implements OnInit {
   }
   onSubmit(userData :FormGroup) {
     let id = parseInt(this.route.snapshot.params['id']);
-    this.order.companyId = id;
+    this.order.compId = id;
     this.order.companyName= userData.value.companyName;
     this.order.companyBroughtQuantity= userData.value.companyBroughtQuantity;
     console.log('Valid?', userData.valid); // true or false

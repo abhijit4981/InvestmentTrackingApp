@@ -1,12 +1,10 @@
 package uniper.poc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uniper.poc.model.ModelPojo;
 import uniper.poc.model.Order;
+import uniper.poc.model.Orders;
 import uniper.poc.service.ModelService;
 import uniper.poc.service.OrderService;
 
@@ -19,5 +17,10 @@ public class OrderController {
     @PostMapping
     public Order createOrder(@RequestBody Order order) {
         return orderService.createOrder(order);
+    }
+
+    @GetMapping
+    public Orders getAllOrders(){
+        return orderService.getAllOrders();
     }
 }

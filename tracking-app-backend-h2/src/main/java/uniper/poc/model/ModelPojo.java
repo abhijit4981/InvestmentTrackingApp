@@ -17,7 +17,7 @@ import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "model")
+@Table(name = "model001")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

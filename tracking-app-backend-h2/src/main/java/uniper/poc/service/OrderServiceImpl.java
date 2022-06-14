@@ -3,11 +3,14 @@ package uniper.poc.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uniper.poc.model.ModelPojo;
+import uniper.poc.model.Models;
 import uniper.poc.model.Order;
 import uniper.poc.model.Orders;
 import uniper.poc.repository.OrderRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -30,7 +33,8 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Orders getAllOrders() {
-        return null;
+        List<Order> orderList = orderRepository.findAll();
+        return new Orders(orderList);
     }
 
     @Override
