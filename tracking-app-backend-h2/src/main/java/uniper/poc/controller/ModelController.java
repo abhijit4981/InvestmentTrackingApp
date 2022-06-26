@@ -2,6 +2,7 @@ package uniper.poc.controller;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import uniper.poc.model.Models;
 import uniper.poc.service.ModelService;
 
 @RestController
+@Slf4j
 @RequestMapping("/models")
 public class ModelController {
 
@@ -30,6 +32,7 @@ public class ModelController {
     @PostMapping
     public ModelPojo createModel(@RequestBody ModelPojo modelPojo) {
         modelPojo.setActive(true);
+        log.info("Recieved request to save Company : "+modelPojo);
         return modelService.createModel(modelPojo);
     }
 

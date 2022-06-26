@@ -1,4 +1,4 @@
-package uniper.poc.service;
+package uniper.poc.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +8,14 @@ import uniper.poc.model.Models;
 import uniper.poc.model.Order;
 import uniper.poc.model.Orders;
 import uniper.poc.repository.OrderRepository;
+import uniper.poc.service.OrderService;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
 @Slf4j
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
     @Override
