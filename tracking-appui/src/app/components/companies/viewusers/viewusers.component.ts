@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Models } from 'src/app/models/models.component';
 import { ModelPojo } from 'src/app/models/user.model';
 import { CompanyService } from 'src/app/services/company.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-viewusers',
@@ -28,6 +29,8 @@ export class ViewusersComponent implements OnInit {
     this.companyService.getAllModels()
     .subscribe((data: Models)=>{
       console.log(data);
+      const blob = new Blob([JSON.stringify(data)], {type : 'application/json'});
+      //saveAs(blob, 'abc.json');
       this.dataSource = new MatTableDataSource(data.modelPojoList);
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
@@ -54,3 +57,4 @@ export class ViewusersComponent implements OnInit {
   }
 
 }
+
