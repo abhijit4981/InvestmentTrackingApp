@@ -7,7 +7,7 @@ import { Models } from 'src/app/models/models.component';
 import { Order } from 'src/app/models/order.model';
 import { Orders } from 'src/app/models/orders.model';
 import { ModelPojo } from 'src/app/models/user.model';
-import { UserserviceService } from 'src/app/services/userservice.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-sell',
@@ -18,7 +18,7 @@ export class SellComponent implements OnInit {
 
   dataSource : MatTableDataSource<Order> = new MatTableDataSource<Order>([]);
   displayedColumns: string[] = ['companyName', 'companyBroughtQuantity','sell'];
-  constructor(private userService:UserserviceService , private router:Router) { }
+  constructor(private orderService:OrderService , private router:Router) { }
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit(): void { 
@@ -27,7 +27,7 @@ export class SellComponent implements OnInit {
   showUsers() {
     console.log("Calling rest call to get all users..");
     
-    this.userService.getAllOrders()
+    this.orderService.getAllOrders()
     .subscribe((data: Orders)=>{
       console.log(data.orderList);
       this.dataSource = new MatTableDataSource(data.orderList);

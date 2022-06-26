@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModelPojo } from 'src/app/models/user.model';
-import { UserserviceService } from 'src/app/services/userservice.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-updateuser',
@@ -14,7 +14,7 @@ export class UpdateuserComponent implements OnInit {
   userForm: FormGroup ;
   showUpdateCard:boolean=true;
   dbModel:ModelPojo;
-  constructor(private formBuilder: FormBuilder,private route:ActivatedRoute,private userService:UserserviceService, private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private route:ActivatedRoute,private companyService:CompanyService , private router:Router) { }
 
   ngOnInit(): void {
     let mobileNumber = parseInt(this.route.snapshot.params['id']);
@@ -31,7 +31,7 @@ export class UpdateuserComponent implements OnInit {
     this.showUpdateCard=false;
     let mobileNumber = parseInt(this.route.snapshot.params['id']);
     //rest call to get details of this user
-    this.userService.getModelBasedOnId(mobileNumber)
+    this.companyService.getModelBasedOnId(mobileNumber)
     .subscribe((data: ModelPojo)=>{
       console.log(data);
       //update the user form with model details
@@ -46,7 +46,7 @@ export class UpdateuserComponent implements OnInit {
     let mobileNumber = parseInt(this.route.snapshot.params['id']);
     console.log('Valid?', userData.valid); // true or false
     console.log('Value', userData.value);
-    this.userService.updateUser(userData.value,mobileNumber)
+    this.companyService.updateUser(userData.value,mobileNumber)
     .subscribe((data: ModelPojo)=>{
       console.log(data);
       this.router.navigate(['/success-component']);

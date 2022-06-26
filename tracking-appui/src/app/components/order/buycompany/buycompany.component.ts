@@ -3,7 +3,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/models/order.model';
 import { ModelPojo } from 'src/app/models/user.model';
-import { UserserviceService } from 'src/app/services/userservice.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-buycompany',
@@ -13,7 +14,7 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 export class BuycompanyComponent implements OnInit {
   userForm: FormGroup;
   order: Order = new Order() ;
-  constructor(private formBuilder: FormBuilder,private route:ActivatedRoute,private userService:UserserviceService, private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private route:ActivatedRoute,private companyService:CompanyService,private orderService:OrderService, private router:Router) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -22,7 +23,7 @@ export class BuycompanyComponent implements OnInit {
     });
     let id = parseInt(this.route.snapshot.params['id']);
     //rest call to get details of this user
-    this.userService.getModelBasedOnId(id)
+    this.companyService.getModelBasedOnId(id)
     .subscribe((data: ModelPojo)=>{
       console.log(data);
       //update the user form with model details
@@ -36,7 +37,7 @@ export class BuycompanyComponent implements OnInit {
     this.order.companyBroughtQuantity= userData.value.companyBroughtQuantity;
     console.log('Valid?', userData.valid); // true or false
     console.log('Value', userData.value);
-    this.userService.createOrder(this.order)
+    this.orderService.createOrder(this.order)
     .subscribe((data: Order)=>{
       console.log(data);
       this.router.navigate(['/success-component']);

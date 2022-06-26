@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder , FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModelPojo } from 'src/app/models/user.model';
-import { UserserviceService } from 'src/app/services/userservice.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { StaticService } from 'src/app/services/static.service';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +13,9 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   hide = true;
-
-  sectorList: string[] = ['Banking', 'IT', 'Cement', 'Adani Group', 'Insurance', 'Paints','Electronics','Labs','Govt','Steel','Jindal Group'];
-  typeList : string[] = ['Growth','Long Term','Intraday'];
-  constructor(private formBuilder: FormBuilder,private userService:UserserviceService , private router:Router) {
+  sectorList: string[] ;
+  typeList : string[] ;
+  constructor(private formBuilder: FormBuilder,private companyService:CompanyService , private router:Router,private staticService:StaticService) {
    }
 
   ngOnInit(): void {
@@ -28,11 +28,13 @@ export class RegisterComponent implements OnInit {
       companyExpectedLow : [''],
       companyExpectedHigh : [''],
     });
+    this.sectorList = this.staticService.getAllSectors();
+    this.typeList = this.staticService.getAllTypes();
   }
   onSubmit(userData :FormGroup) {
     console.log('Valid?', userData.valid); // true or false
     console.log('Value', userData.value);
-    this.userService.saveUser(userData.value)
+    this.companyService.saveUser(userData.value)
     .subscribe((data: ModelPojo)=>{
       console.log(data);
       this.router.navigate(['/success-component']);

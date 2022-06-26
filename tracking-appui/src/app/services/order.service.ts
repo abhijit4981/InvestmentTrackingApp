@@ -1,18 +1,18 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, throwError } from 'rxjs';
 import { baseUrl } from 'src/environments/environment';
-import { Models } from '../models/models.component';
 import { Order } from '../models/order.model';
 import { Orders } from '../models/orders.model';
-import { ModelPojo } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserserviceService {
+export class OrderService {
   oredrUrl = baseUrl+"/orders/";
+
+  constructor(private http: HttpClient) { }
+
   createOrder(value: Order) {
     console.log("calling backend"+this.oredrUrl+" with order details "+value.companyBroughtQuantity)
     return this.http.post<Order>(this.oredrUrl,value).pipe(catchError(this.handleError));
@@ -20,30 +20,7 @@ export class UserserviceService {
   getAllOrders(){
     return this.http.get<Orders>(this.oredrUrl).pipe(catchError(this.handleError));
   }
-  
-  modelUrl = baseUrl+"/models/";
-  constructor(private http: HttpClient) { }
-  getAllModels() {
-    console.log("calling backend"+this.modelUrl)
-    return this.http.get<Models>(this.modelUrl).pipe(catchError(this.handleError));
-  }
-  getModelBasedOnId(mobileNumber: number){
-    return this.http.get<ModelPojo>(this.modelUrl+mobileNumber).pipe(catchError(this.handleError));
-  }
 
-  saveUser(user:ModelPojo) {
-    return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
-  }
-  cloneUser(user:ModelPojo) {
-    user.companyId=0;
-    return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
-  }
-  updateUser(user:ModelPojo,mobileNumber:number){
-    return this.http.put<ModelPojo>(this.modelUrl+mobileNumber,user).pipe(catchError(this.handleError));
-  }
-  deleteModel(mobileNumber: number) {
-    return this.http.delete(this.modelUrl+mobileNumber).pipe(catchError(this.handleError));
-  }
 
   private handleError(httpError: HttpErrorResponse) {
     if (httpError.error instanceof ErrorEvent) {

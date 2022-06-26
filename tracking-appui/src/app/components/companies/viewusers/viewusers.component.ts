@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Models } from 'src/app/models/models.component';
 import { ModelPojo } from 'src/app/models/user.model';
-import { UserserviceService } from 'src/app/services/userservice.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-viewusers',
@@ -16,7 +16,7 @@ export class ViewusersComponent implements OnInit {
   dataSource : MatTableDataSource<ModelPojo> = new MatTableDataSource<ModelPojo>([]);
   displayedColumns: string[] = ['companySequence', 'companyName', 'companySector','companyType','companyCurrentPrice','update','clone','delete'];
 
-  constructor(private userService:UserserviceService , private router:Router) { }
+  constructor(private companyService:CompanyService , private router:Router) { }
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit(): void { 
@@ -25,7 +25,7 @@ export class ViewusersComponent implements OnInit {
   showUsers() {
     console.log("Calling rest call to get all users..");
     
-    this.userService.getAllModels()
+    this.companyService.getAllModels()
     .subscribe((data: Models)=>{
       console.log(data);
       this.dataSource = new MatTableDataSource(data.modelPojoList);
