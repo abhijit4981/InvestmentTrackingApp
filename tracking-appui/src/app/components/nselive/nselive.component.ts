@@ -16,25 +16,21 @@ export class NseliveComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("calling NSE to fetch details in component")
-    this.nseData.getCompanyMetaDetails()
+    this.nseData.getCompanyMetaDetails('ADANIPOWER')
     .subscribe((data: any)=>{
       this.companyDetails = data;
     });
-    this.nseData.getCompanyQuoteEquityDetails()
+    this.nseData.getCompanyQuoteEquityDetails('ADANIPOWER')
     .subscribe((data: any)=>{
       this.getCompanyQuoteEquityDetails = data;
     });
-    this.nseData.getCompanyQuoteEquityDetailsWithTradeInfo()
+    this.nseData.getCompanyQuoteEquityDetailsWithTradeInfo('ADANIPOWER')
     .subscribe((data: any)=>{
       this.getCompanyQuoteEquityDetailsWithTradeInfo = data;
     });
-    this.nseData.getCompanyQuoteForChartByIndex()
+    this.nseData.getCompanyQuoteForChartByIndex('ADANIPOWER')
     .subscribe((data: any)=>{
       this.getCompanyQuoteForChartByIndex = data;
-    });
-    this.nseData.getCompanyMetaDetails()
-    .subscribe((data: any)=>{
-      this.companyDetails = data;
     });
   }
 

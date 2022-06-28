@@ -1,51 +1,22 @@
-
-
-<p>ChartByIndex info</p>
-{{  getCompanyQuoteForChartByIndex | json}}
-<p>============================================================================================</p>
-<p>============================================================================================</p>
-<p>============================================================================================</p>
-<p>Basic details:</p>
+<p>Basic details:</p><br>
 {{  companyDetails | json}}
 <p>============================================================================================</p>
 <p>============================================================================================</p>
 <p>============================================================================================</p>
-<p>Equity Details</p>
-{{  getCompanyQuoteEquityDetails | json}}
-<p>============================================================================================</p>
-<p>============================================================================================</p>
-<p>============================================================================================</p>
-<p>Equity Details With Trade info</p>
-{{  getCompanyQuoteEquityDetailsWithTradeInfo | json}}
-<p>============================================================================================</p>
-<p>============================================================================================</p>
-<p>============================================================================================</p>
+<p>ChartByIndex info</p><br>
 <!--
-this.nseData.getCompanyMetaDetails()
-    .subscribe((data: any)=>{
-      this.companyDetails = data;
-    });
-    this.nseData.getCompanyQuoteEquityDetails()
-    .subscribe((data: any)=>{
-      this.getCompanyQuoteEquityDetails = data;
-    });
-    this.nseData.getCompanyQuoteEquityDetailsWithTradeInfo()
-    .subscribe((data: any)=>{
-      this.getCompanyQuoteEquityDetailsWithTradeInfo = data;
-    });
+{{  getCompanyQuoteForChartByIndex | json}}
+-->
 
-<p>Basic details:</p>
-{{  companyDetails | json}}
-
-<p>Equity Details</p>
+<p>============================================================================================</p>
+<p>============================================================================================</p>
+<p>============================================================================================</p>
+<p>Equity Details</p><br>
 {{  getCompanyQuoteEquityDetails | json}}
-
-<p>Equity Details With Trade info</p>
+<p>============================================================================================</p>
+<p>============================================================================================</p>
+<p>============================================================================================</p>
+<p>Equity Details With Trade info</p><br>
+<!--
 {{  getCompanyQuoteEquityDetailsWithTradeInfo | json}}
-
-accept-encoding: gzip
-accept-language: en-US,en;q=0.9
-
-user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-cookie: _gid=GA1.2.2015420192.1656351940; _ga=GA1.1.113674574.1656351493; nseQuoteSymbols=[{"symbol":"AXISBANK","identifier":null,"type":"equity"},{"symbol":"HCLTECH","identifier":null,"type":"equity"},{"symbol":"TATAPOWER","identifier":null,"type":"equity"},{"symbol":"ADANIPOWER","identifier":null,"type":"equity"}]; AKA_A2=A; ak_bmsc=34148827BE77DB737A5D5895C3071EA7~000000000000000000000000000000~YAAQXdcLFycqlTiBAQAAW6rlqBAr6iYAwkznEsBRVRguZXZOyCX5I+/Q7N1K5s//yKxqs0K33Bl1l67czr87P+nM6aBju5yOMN2xXefzNLUUAJI1pwQEyy2WJDY4h/BskgX+KkRvtVE+pp42+SoeNuCmgEW9yJ/RmQpV22owU7z6hRJewoYie+liO6Nz0Xd66GVSiaZB0CzSMgIaYIm7fTE52ZeGf4aB0I3M4ycWEQx072+v31A/j2qu7UJF3KaLJMsF/rfewmjE92eejJwkiJySN66u5WrcrTdZOgJh40P4QK5t1WzSrDc6EcJkir3FTtnQJXnjJpXDVeAeEBSsoss/CC1Iu89HfE0gU5xV1wWOR1VE82Wj8+09bXwNcf4OBOThHhbTgVyGjZ0I; nsit=FTvhSl5m9iPt7qwpeTiDxlP8; nseappid=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkubnNlIiwiYXVkIjoiYXBpLm5zZSIsImlhdCI6MTY1NjM5NjE4MCwiZXhwIjoxNjU2Mzk5NzgwfQ.kBFDP3EOJ1g-M4tnynSN8NSUcDrt0Hmi98ISsBgfbgo; bm_mi=F440951099306356CB9DF5C30109E2B8~YAAQDdcLF6sz+jeBAQAA1uvnqBCwVZB/XjIOiNKPUMgoGaO7pFkM1Ng7EaHucYKTfrYF7OSl3MmZsDehgIMAxLkyh4cj2fTadoJUeZ42YgVpHvbraaTdUxeqNCA8zRi6A3TY2OBjtoKKDgVP+RrrgMx7vSwmEvy5pqa1IG7x69ACcpu+/O2QjG+OFkkpjHNGksek3TE+o4HylxzDDZ/vvcQJnuyXalDc5XCoOVHB3J9Jz+7YTyaChAMo/B1b68JOz7GYf9xsp0BoPrBNybcL1dPtd+BX/Ay0FP6hGwQ5c1/iAtrAS3KEEKK1/P3BhUMAgcYEvmW5JJpIbNj9dru4Z5s=~1; RT="z=1&dm=nseindia.com&si=b4253416-79de-45bc-814b-8a35bd66c970&ss=l4xrio8n&sl=0&tt=0"; bm_sv=8A960809176122A97DF7F36C8547758B~YAAQDdcLF7Yz+jeBAQAAre7nqBDgLQJd9VIZ1tRM48SyMnZX+1HoJI5Hl38GQMWWoa8HX/k+Ijsp/BwntYKXBwumZb3wdnon7VzQt7TvAGRZXd2Bti8VaTV2BDCjEhqMm9wpGtdTP75rGbOYr1VXoBMkqSAj14ns9iFhx0xnL2HCiEyA8reVC2y9maD92vBQLdbB/a5E9ajkJf93MqNQ7A7WEoPLGFfHXn7t1HhozoRD9k14+sNSvZys+cpaDDqImSY=~1; _ga_PJSKY6CFJH=GS1.1.1656396181.4.0.1656396181.0
 -->
