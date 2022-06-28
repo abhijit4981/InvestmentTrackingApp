@@ -17,6 +17,7 @@ import { SellComponent } from './components/order/sell/sell.component';
 import { BuycompanyComponent } from './components/order/buycompany/buycompany.component';
 import { SellcompanyComponent } from './components/order/sellcompany/sellcompany.component';
 import { SuccessComponent } from './components/companies/success/success.component';
+import { NseliveComponent } from './components/nselive/nselive.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SuccessComponent } from './components/companies/success/success.compone
     SellComponent,
     BuycompanyComponent,
     SellcompanyComponent,
-    SuccessComponent
+    SuccessComponent,
+    NseliveComponent
   ],
   imports: [
     BrowserModule,

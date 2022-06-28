@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/companies/register/register.comp
 import { SuccessComponent } from './components/companies/success/success.component';
 import { UpdateuserComponent } from './components/companies/updateuser/updateuser.component';
 import { ViewusersComponent } from './components/companies/viewusers/viewusers.component';
+import { NseliveComponent } from './components/nselive/nselive.component';
 import { BuyComponent } from './components/order/buy/buy.component';
 import { BuycompanyComponent } from './components/order/buycompany/buycompany.component';
 import { SellComponent } from './components/order/sell/sell.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'buy-component', component: BuyComponent },
   { path: 'sell-component', component: SellComponent },
   { path: 'success-component', component: SuccessComponent },
+  { path: 'live-data', component: NseliveComponent },
 
   {path: "deletecompany/:id", component: DeleteuserComponent},
   {path: "updatecompany/:id", component: UpdateuserComponent},
@@ -26,6 +28,7 @@ const routes: Routes = [
 
   { path: '',   redirectTo: '/view-component', pathMatch: 'full' },
   { path: '**', component: ViewusersComponent },  // Wildcard route for a 404 page
+  
 ];
 
 @NgModule({

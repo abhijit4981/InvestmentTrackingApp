@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://localhost:9191/",
+    "target": "https://www.nseindia.com",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
