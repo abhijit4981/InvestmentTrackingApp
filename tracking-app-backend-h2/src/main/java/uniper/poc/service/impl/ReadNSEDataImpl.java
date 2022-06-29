@@ -18,9 +18,9 @@ public class ReadNSEDataImpl {
 
     private String nseUrlToGetMetaInfo = baseUrl+"/api/equity-meta-info?symbol=";
     private String nseUrlForQuoteEquity01 = baseUrl + "/api/quote-equity?symbol=";
-    private String nseUrlForQuoteEquity02 = "&section=trade_info";
-    private String nseUrlForChartByIndex01 = baseUrl+"/api/chart-databyindex?index=";
-    private String nseUrlForChartByIndex02 = "QN";
+    //private String nseUrlForQuoteEquity02 = "&section=trade_info";
+    //private String nseUrlForChartByIndex01 = baseUrl+"/api/chart-databyindex?index=";
+    //private String nseUrlForChartByIndex02 = "QN";
     @Value("${nse.cookie}")
     private String nseCookie;
     @Autowired
@@ -54,6 +54,8 @@ public class ReadNSEDataImpl {
         log.info("02:::::::::::::"+responseForQuoteEquity01.getBody());
         return responseForQuoteEquity01.getBody();
     }
+    /*
+
     public String getForQuoteEquity02(String companyName){
         log.info("cookie val is : "+nseCookie);
         HttpHeaders headers = new HttpHeaders();
@@ -86,4 +88,5 @@ public class ReadNSEDataImpl {
         log.info("04:::::::::::::"+responseForChartByIndex.getBody());
         return responseForChartByIndex.getBody();
     }
+    */
 }

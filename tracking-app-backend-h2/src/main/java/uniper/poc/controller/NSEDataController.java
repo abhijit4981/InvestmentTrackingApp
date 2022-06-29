@@ -28,6 +28,7 @@ public class NSEDataController {
     public String getForQuoteEquity01(@PathVariable String companyName){
         return readNSEData.getForQuoteEquity01(companyName);
     }
+    /*
     @GetMapping("/read03/{companyName}")
     public String getForQuoteEquity02(@PathVariable String companyName){
         return readNSEData.getForQuoteEquity02(companyName);
@@ -36,6 +37,8 @@ public class NSEDataController {
     public String getForChartByIndex(@PathVariable String companyName){
         return readNSEData.getForChartByIndex(companyName);
     }
+    *
+     */
     @GetMapping("/savebasicinfo/{companyName}")
     public NSEListedCompanyModel saveBasicInfo(@PathVariable String companyName){
         return nseDataService.createNSEListedCompanyModel(companyName);
