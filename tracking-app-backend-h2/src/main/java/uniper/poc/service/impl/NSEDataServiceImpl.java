@@ -19,6 +19,7 @@ import uniper.poc.service.NSEDataService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -116,7 +117,10 @@ System.out.println(address.getAsString());
 
     @Override
     public NSEListedCompanyModels getAllNSEListedCompanyModels() {
-        return null;
+        NSEListedCompanyModels nseListedCompanyModels = new NSEListedCompanyModels();
+        List<NSEListedCompanyModel> nseListedCompanyModelList = nseListedCompanyModelRepository.findAll();
+        nseListedCompanyModels.setNseListedCompanyModelList(nseListedCompanyModelList);
+        return nseListedCompanyModels;
     }
 
     @Override

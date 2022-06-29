@@ -9,13 +9,13 @@ import { ModelPojo } from '../models/user.model';
   providedIn: 'root'
 })
 export class CompanyService {
-  modelUrl = baseUrl+"/models/";
+  modelUrl = baseUrl+"/nse/";
   nseCreateUrl =baseUrl + "/nse/savebasicinfo/";
   constructor(private http: HttpClient) { }
 
   getAllModels() {
     console.log("calling backend"+this.modelUrl)
-    return this.http.get<Models>(this.modelUrl).pipe(catchError(this.handleError));
+    return this.http.get<any>(this.modelUrl).pipe(catchError(this.handleError));
   }
   getModelBasedOnId(mobileNumber: number){
     return this.http.get<ModelPojo>(this.modelUrl+mobileNumber).pipe(catchError(this.handleError));
@@ -26,7 +26,6 @@ export class CompanyService {
     return this.http.get<any>(this.nseCreateUrl+user.companyName).pipe(catchError(this.handleError));
   }
   cloneUser(user:ModelPojo) {
-    user.companyId=0;
     return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
   }
   updateUser(user:ModelPojo,mobileNumber:number){

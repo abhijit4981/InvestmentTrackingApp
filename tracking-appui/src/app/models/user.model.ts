@@ -1,11 +1,9 @@
 export interface ModelPojo {
-      companyId: number;
+      companyId: string;
       companyName: string;
       companySequence: string;
       companySector: string;
       companyType: string;
-      companyCurrentPrice: number;
-      companyBroughtQuantity:number;
-      companyExpectedLow : number;
-      companyExpectedHigh :number;
+      listingDate:string;
+      lastUpdateTime:string;
 }

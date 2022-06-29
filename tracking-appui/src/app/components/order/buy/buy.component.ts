@@ -27,7 +27,7 @@ export class BuyComponent implements OnInit {
     this.companyService.getAllModels()
     .subscribe((data: Models)=>{
       console.log(data);
-      this.dataSource = new MatTableDataSource(data.modelPojoList);
+      this.dataSource = new MatTableDataSource(data.nseListedCompanyModelList);
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
     })  

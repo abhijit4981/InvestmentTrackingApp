@@ -14,8 +14,9 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./viewusers.component.css']
 })
 export class ViewusersComponent implements OnInit {
+  dbData:any;
   dataSource : MatTableDataSource<ModelPojo> = new MatTableDataSource<ModelPojo>([]);
-  displayedColumns: string[] = ['companySequence', 'companyName', 'companySector','companyType','companyCurrentPrice','update','clone','delete'];
+  displayedColumns: string[] = ['companyName', 'industry','listingDate','lastUpdateTime','value','update','clone','delete'];
 
   constructor(private companyService:CompanyService , private router:Router) { }
   @ViewChild(MatSort) sort: MatSort;
@@ -28,10 +29,12 @@ export class ViewusersComponent implements OnInit {
     
     this.companyService.getAllModels()
     .subscribe((data: Models)=>{
-      console.log(data);
+      //console.log(data);
+      this.dbData=data;
+      console.log('DB data: '+this.dbData);
       const blob = new Blob([JSON.stringify(data)], {type : 'application/json'});
       //saveAs(blob, 'abc.json');
-      this.dataSource = new MatTableDataSource(data.modelPojoList);
+      this.dataSource = new MatTableDataSource(data.nseListedCompanyModelList);
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
     })  

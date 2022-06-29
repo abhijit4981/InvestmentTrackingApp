@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uniper.poc.model.NSEListedCompanyModel;
+import uniper.poc.model.NSEListedCompanyModels;
 import uniper.poc.service.NSEDataService;
 import uniper.poc.service.impl.ReadNSEDataImpl;
 
@@ -16,31 +17,13 @@ public class NSEDataController {
     private ReadNSEDataImpl readNSEData;
     @Autowired
     private NSEDataService nseDataService;
-    @GetMapping
-    public String helloWorld(){
-        return "Hello World from NSE";
-    }
-    @GetMapping("/read01/{companyName}")
-    public String getBasicInfo(@PathVariable String companyName){
-        return readNSEData.getBasicInfo(companyName);
-    }
-    @GetMapping("/read02/{companyName}")
-    public String getForQuoteEquity01(@PathVariable String companyName){
-        return readNSEData.getForQuoteEquity01(companyName);
-    }
-    /*
-    @GetMapping("/read03/{companyName}")
-    public String getForQuoteEquity02(@PathVariable String companyName){
-        return readNSEData.getForQuoteEquity02(companyName);
-    }
-    @GetMapping("/read04/{companyName}")
-    public String getForChartByIndex(@PathVariable String companyName){
-        return readNSEData.getForChartByIndex(companyName);
-    }
-    *
-     */
+
     @GetMapping("/savebasicinfo/{companyName}")
     public NSEListedCompanyModel saveBasicInfo(@PathVariable String companyName){
         return nseDataService.createNSEListedCompanyModel(companyName);
+    }
+    @GetMapping
+    public NSEListedCompanyModels getAllModels() {
+        return nseDataService.getAllNSEListedCompanyModels();
     }
 }
