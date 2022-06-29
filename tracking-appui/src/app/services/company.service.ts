@@ -10,7 +10,7 @@ import { ModelPojo } from '../models/user.model';
 })
 export class CompanyService {
   modelUrl = baseUrl+"/models/";
-
+  nseCreateUrl =baseUrl + "/nse/savebasicinfo/";
   constructor(private http: HttpClient) { }
 
   getAllModels() {
@@ -22,7 +22,8 @@ export class CompanyService {
   }
 
   saveUser(user:ModelPojo) {
-    return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
+    //return this.http.post<ModelPojo>(this.modelUrl,user).pipe(catchError(this.handleError));
+    return this.http.get<any>(this.nseCreateUrl+user.companyName).pipe(catchError(this.handleError));
   }
   cloneUser(user:ModelPojo) {
     user.companyId=0;
